@@ -1,0 +1,26 @@
+<section *ngIf="isUserLoggedIn == false; else isLogged" class="homePage flexBox spaceBetween">
+    <article class="marginBoTo10">
+            <app-form-login 
+            (sendFormData)="connectUser($event)" 
+            [resetFormData]="resetFormDataLogin"
+            ></app-form-login>
+            
+            <app-form-response
+                *ngIf="displayReturnLogin"
+                [content]="apiMessageLogin"
+                [class]="messageClassLogin"
+                (close)="displayReturnLogin = false"
+            ></app-form-response>
+    </article>
+    
+    <article class="marginBoTo10">
+        <app-form-register 
+        (sendFormData)="registerUser($event)" 
+        [resetFormData]="resetFormDataRegister"
+        ></app-form-register>
+    </article>
+</section>
+
+<ng-template #isLogged>
+    Vous êtes connectés
+</ng-template>

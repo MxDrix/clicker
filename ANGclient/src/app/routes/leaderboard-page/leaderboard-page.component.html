@@ -1,0 +1,10 @@
+<div *ngIf="allClickersArray">
+   <ul id="leaderboard">
+      <li *ngFor="let clicker of allClickersArray" class="flexBox spaceBetween alignItemsCenter">
+         <div>{{ clicker.nbClick }}pts</div> 
+         <div class="italicFt12">
+             {{ clicker.player.firstname }} {{ clicker.player.lastname }} - {{ clicker.date | date: 'dd/MM/yyyy' }} - {{ clicker.date | date: 'HH:mm:ss' }}
+         </div>
+      </li>
+   </ul>
+</div>

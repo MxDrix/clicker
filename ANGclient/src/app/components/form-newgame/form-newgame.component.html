@@ -1,0 +1,9 @@
+<form autocomplete="off" [formGroup]="form">
+  <input name="nbClick" formControlName="nbClick" type="hidden" [(ngModel)]="nbClick" disabled />
+</form>
+
+<div class="wrapper">
+  <div class="progress-bar">
+    <span class="progress-bar-fill" [ngStyle]="{'width': progressBar + '%'}"></span>
+  </div>
+</div>

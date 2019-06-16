@@ -1,0 +1,24 @@
+<section class="maxWidth">
+  <header>
+    <nav *ngIf="isUserLoggedIn; else noConnected">
+      <h1>HELLO {{ userInformation!.data.firstname }}</h1>
+      <ul *ngIf="UtilsService.getCurrentRoute() == '/leaderboard'">
+        <li><a [routerLink]="'/me'">Play</a></li>
+        <li><a (click)="logoutUser()">Logout</a></li>
+      </ul>
+      <ul *ngIf="UtilsService.getCurrentRoute() == '/me'">
+        <li><a [routerLink]="'/leaderboard'">Leaderboard</a></li>
+        <li><a (click)="logoutUser()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+</section>
+
+<div class="divCenter textCenter" id="flashMessage">
+  <span id="flashMessageContent"></span>
+</div>
+
+<ng-template #noConnected>
+  <h1>WELCOME ON <span>TAPBOARD</span></h1>
+  <p>LOGIN OR REGISTER TO LAUNCH AN AMAZING TAPPING GAME</p>
+</ng-template>
