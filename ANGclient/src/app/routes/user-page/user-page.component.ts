@@ -5,7 +5,7 @@ Imports & definition
   import { Component, OnInit } from '@angular/core';
 
   // Inner
-  import { IdentityModel } from '../../models/identity.model';
+  import { UserModel } from '../../models/user.model';
   import { ApiResponseModel } from "../../models/api.reponse.model";
   import { AuthService } from "../../services/auth/auth-service.service";
   import { UtilsService } from "../../services/utils/utils-service.service";

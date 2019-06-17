@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p [innerHTML]=\"content\"></p>\n<button\n  (click)=\"close.emit(true)\"\n>\n  <i class=\"fas fa-times\">\n</i></button>"
+module.exports = "<p [innerHTML]=\"content\"></p>\r\n<button\r\n  (click)=\"close.emit(true)\"\r\n>\r\n  <i class=\"fas fa-times\">\r\n</i></button>"
 
 /***/ }),
 

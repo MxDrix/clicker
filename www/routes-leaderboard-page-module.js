@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"allClickersArray\">\n   <ul id=\"leaderboard\">\n      <li *ngFor=\"let clicker of allClickersArray\" class=\"flexBox spaceBetween alignItemsCenter\">\n         <div>{{ clicker.nbClick }}pts</div> \n         <div class=\"italicFt12\">\n             {{ clicker.player.firstname }} {{ clicker.player.lastname }} - {{ clicker.date | date: 'dd/MM/yyyy' }} - {{ clicker.date | date: 'HH:mm:ss' }}\n         </div>\n      </li>\n   </ul>\n</div>\n"
+module.exports = "<div *ngIf=\"allClickersArray\">\r\n   <ul id=\"leaderboard\">\r\n      <li *ngFor=\"let clicker of allClickersArray\" class=\"flexBox spaceBetween alignItemsCenter\">\r\n         <div>{{ clicker.nbClick }}pts</div> \r\n         <div class=\"italicFt12\">\r\n             {{ clicker.player.firstname }} {{ clicker.player.lastname }} - {{ clicker.date | date: 'dd/MM/yyyy' }} - {{ clicker.date | date: 'HH:mm:ss' }}\r\n         </div>\r\n      </li>\r\n   </ul>\r\n</div>\r\n"
 
 /***/ }),
 

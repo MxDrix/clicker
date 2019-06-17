@@ -1,4 +1,4 @@
-export interface IdentityModel {
+export interface UserModel {
     _id?: String,
     email: String,
     firstname: String,

@@ -20,7 +20,7 @@ npm install -g nodemon
 Download or clone this repository & run this command to install packages
 
 ```bash
-git clone https://github.com/florianrambur/Clicker.git
+git clone https://github.com/MxDrix/clicker
 
 cd Clicker
 npm install

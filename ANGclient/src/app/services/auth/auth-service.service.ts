@@ -5,7 +5,7 @@ Imports
   import { HttpClient, HttpHeaders } from '@angular/common/http';
   // import 'rxjs/add/operator/toPromise';
   import { environment } from "../../../environments/environment";
-  import { IdentityModel } from '../../models/identity.model';
+  import { UserModel } from '../../models/user.model';
   import { CookieService } from 'ngx-cookie-service';
   import { JwtHelperService } from '@auth0/angular-jwt';
 //
@@ -21,7 +21,7 @@ Definition
     constructor( private HttpClient: HttpClient, private CookieService: CookieService ){};
     
     // Function to register a user
-    public register(userData: IdentityModel): Promise<any>{
+    public register(userData: UserModel): Promise<any>{
       // Set header
       let myHeader = new HttpHeaders();
       myHeader.append('Content-Type', 'application/json');
@@ -47,7 +47,7 @@ Definition
     };
 
     // Function to connect a user
-    public login(userData: IdentityModel): Promise<any>{
+    public login(userData: UserModel): Promise<any>{
       // Set header
       let myHeader = new HttpHeaders();
       myHeader.append('Content-Type', 'application/json');

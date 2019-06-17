@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Validation de votre identité</h2>\n<form [formGroup]=\"form\" (submit)=\"submitForm()\">\n  <label for=\"password\">Quel est votre mot de passe ?</label>\n  <input type=\"password\" name=\"password\" id=\"password\" required minlength=\"5\" formControlName = \"password\">\n  <button type=\"submit\" [disabled]='!form.valid'>Valider</button>\n</form>\n\n<app-form-response\n  *ngIf=\"displayReturn\"\n  [content]=\"apiMessage\"\n  [class]=\"messageClass\"\n  (close)=\"displayReturn = false\"\n></app-form-response>"
+module.exports = "<h2>Validation de votre identité</h2>\r\n<form [formGroup]=\"form\" (submit)=\"submitForm()\">\r\n  <label for=\"password\">Quel est votre mot de passe ?</label>\r\n  <input type=\"password\" name=\"password\" id=\"password\" required minlength=\"5\" formControlName = \"password\">\r\n  <button type=\"submit\" [disabled]='!form.valid'>Valider</button>\r\n</form>\r\n\r\n<app-form-response\r\n  *ngIf=\"displayReturn\"\r\n  [content]=\"apiMessage\"\r\n  [class]=\"messageClass\"\r\n  (close)=\"displayReturn = false\"\r\n></app-form-response>"
 
 /***/ }),
 

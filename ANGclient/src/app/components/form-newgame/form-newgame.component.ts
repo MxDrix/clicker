@@ -7,7 +7,7 @@ Imports & definition
   import { Router } from '@angular/router';
 
   // Inner
-  import { IdentityModel } from '../../models/identity.model';
+  import { UserModel } from '../../models/user.model';
   import { ClickerService } from '../../services/clicker/clicker-service.service';
   import { UtilsService } from '../../services/utils/utils-service.service';
 
@@ -32,7 +32,7 @@ Imports & definition
     */
       // Declaration
       public form: FormGroup;
-      public formData: IdentityModel;
+      public formData: UserModel;
       public passwordError: Boolean = false;
 
       // Instanciation

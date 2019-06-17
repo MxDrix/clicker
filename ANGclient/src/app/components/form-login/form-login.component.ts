@@ -7,7 +7,7 @@ Imports & definition
   import { UtilsService } from "../../services/utils/utils-service.service";
 
   // Inner
-  import { IdentityModel } from '../../models/identity.model';
+  import { UserModel } from '../../models/user.model';
 
   // Definition
   @Component({
@@ -29,7 +29,7 @@ Imports & definition
 
       // Declaration
       public form: FormGroup;
-      public formData: IdentityModel;
+      public formData: UserModel;
       public passwordError: Boolean = false;
       public toggleFields;
 

@@ -312,7 +312,7 @@ var AuthGuard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\n  UNDER MIT LICENCE @2019 <a style=\"color: #CD2235;\" href='https://github.com/florianrambur' target=\"_blank\">FLORIAN RAMBUR</a>\n</footer>"
+module.exports = "<footer>\r\n  UNDER MIT LICENCE @2019 <a style=\"color: #CD2235;\" href='https://github.com/MxDrix' target=\"_blank\">Richard CHANDON</a>\r\n</footer>"
 
 /***/ }),
 
@@ -409,7 +409,7 @@ var FooterModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"maxWidth\">\n  <header>\n    <nav *ngIf=\"isUserLoggedIn; else noConnected\">\n      <h1>HELLO {{ userInformation!.data.firstname }}</h1>\n      <ul *ngIf=\"UtilsService.getCurrentRoute() == '/leaderboard'\">\n        <li><a [routerLink]=\"'/me'\">Play</a></li>\n        <li><a (click)=\"logoutUser()\">Logout</a></li>\n      </ul>\n      <ul *ngIf=\"UtilsService.getCurrentRoute() == '/me'\">\n        <li><a [routerLink]=\"'/leaderboard'\">Leaderboard</a></li>\n        <li><a (click)=\"logoutUser()\">Logout</a></li>\n      </ul>\n    </nav>\n  </header>\n</section>\n\n<div class=\"divCenter textCenter\" id=\"flashMessage\">\n  <span id=\"flashMessageContent\"></span>\n</div>\n\n<ng-template #noConnected>\n  <h1>WELCOME ON <span>TAPBOARD</span></h1>\n  <p>LOGIN OR REGISTER TO LAUNCH AN AMAZING TAPPING GAME</p>\n</ng-template>"
+module.exports = "<section class=\"maxWidth\">\r\n  <header>\r\n    <nav *ngIf=\"isUserLoggedIn; else noConnected\">\r\n      <h1>HELLO {{ userInformation!.data.firstname }}</h1>\r\n      <ul *ngIf=\"UtilsService.getCurrentRoute() == '/leaderboard'\">\r\n        <li><a [routerLink]=\"'/me'\">Play</a></li>\r\n        <li><a (click)=\"logoutUser()\">Logout</a></li>\r\n      </ul>\r\n      <ul *ngIf=\"UtilsService.getCurrentRoute() == '/me'\">\r\n        <li><a [routerLink]=\"'/leaderboard'\">Leaderboard</a></li>\r\n        <li><a (click)=\"logoutUser()\">Logout</a></li>\r\n      </ul>\r\n    </nav>\r\n  </header>\r\n</section>\r\n\r\n<div class=\"divCenter textCenter\" id=\"flashMessage\">\r\n  <span id=\"flashMessageContent\"></span>\r\n</div>\r\n\r\n<ng-template #noConnected>\r\n  <h1>WELCOME ON <span>TAPBOARD</span></h1>\r\n  <p>LOGIN OR REGISTER TO LAUNCH AN AMAZING TAPPING GAME</p>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1006,7 +1006,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Developpements\Javascript\Clicker\ANGclient\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\ECV DIGITAL\DEV\clicker\ANGclient\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form autocomplete=\"off\" [formGroup]=\"form\">\n  <input name=\"nbClick\" formControlName=\"nbClick\" type=\"hidden\" [(ngModel)]=\"nbClick\" disabled />\n</form>\n\n<div class=\"wrapper\">\n  <div class=\"progress-bar\">\n    <span class=\"progress-bar-fill\" [ngStyle]=\"{'width': progressBar + '%'}\"></span>\n  </div>\n</div>"
+module.exports = "<form autocomplete=\"off\" [formGroup]=\"form\">\r\n  <input name=\"nbClick\" formControlName=\"nbClick\" type=\"hidden\" [(ngModel)]=\"nbClick\" disabled />\r\n</form>\r\n\r\n<div class=\"wrapper\">\r\n  <div class=\"progress-bar\">\r\n    <span class=\"progress-bar-fill\" [ngStyle]=\"{'width': progressBar + '%'}\"></span>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -273,7 +273,7 @@ var Routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forCh
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"italicFt12\">Vous avez très exactement 10 secondes pour cliquer autant de fois que possible sur le gros bouton ci-dessous, la partie se lancera au premier clic ! Bonne chance !</p>\n\n<img #newGameEl \n  (click)=\"UtilsService.switchImgSrc($event, 'tapOff.png', 'tapOn.png'); startNewGame(newGameEl)\" \n  src=\"../../../assets/images/tapOff.png\" \n  [attr.data-status]=\"status\"\n  class=\"maxWidth100\"\n/>\n\n<app-form-newgame\n  [nbClick] = nbClick\n  [timer] = timer\n  [progressBar] = progressBar\n></app-form-newgame>"
+module.exports = "<p class=\"italicFt12\">Vous avez très exactement 10 secondes pour cliquer autant de fois que possible sur le gros bouton ci-dessous, la partie se lancera au premier clic ! Bonne chance !</p>\r\n\r\n<img #newGameEl \r\n  (click)=\"UtilsService.switchImgSrc($event, 'tapOff.png', 'tapOn.png'); startNewGame(newGameEl)\" \r\n  src=\"../../../assets/images/tapOff.png\" \r\n  [attr.data-status]=\"status\"\r\n  class=\"maxWidth100\"\r\n/>\r\n\r\n<app-form-newgame\r\n  [nbClick] = nbClick\r\n  [timer] = timer\r\n  [progressBar] = progressBar\r\n></app-form-newgame>"
 
 /***/ }),
 

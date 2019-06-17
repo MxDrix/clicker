@@ -6,7 +6,7 @@ Imports & definition
   import { Router } from '@angular/router';
 
   // Inner
-  import { IdentityModel } from '../../models/identity.model';
+  import { UserModel } from '../../models/user.model';
   import { ApiResponseModel } from "../../models/api.reponse.model";
   import { AuthService } from "../../services/auth/auth-service.service";
   import { UtilsService } from "../../services/utils/utils-service.service";
@@ -57,7 +57,7 @@ Export
     Methods
     */
       // Register new user
-      public registerUser = (data: IdentityModel) => {
+      public registerUser = (data: UserModel) => {
         // Send user data
         this.AuthService.register(data)
         .then( (apiResponse: ApiResponseModel) => {
@@ -76,7 +76,7 @@ Export
       };
 
       // Connnect new user
-      public connectUser = (data: IdentityModel) => {
+      public connectUser = (data: UserModel) => {
         // Send user data
         this.AuthService.login(data)
         .then( (apiResponse: ApiResponseModel) => {

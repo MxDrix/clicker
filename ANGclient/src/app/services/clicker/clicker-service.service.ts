@@ -5,7 +5,7 @@ Imports
   import { HttpClient, HttpHeaders } from '@angular/common/http';
   // import 'rxjs/add/operator/toPromise';
   import { environment } from "../../../environments/environment";
-  import { IdentityModel } from '../../models/identity.model';
+  import { UserModel } from '../../models/user.model';
 //
 
 
