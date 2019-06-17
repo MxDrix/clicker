@@ -9,7 +9,7 @@ Import
 
 const clickerSchema = new Schema({
     nbClick: Number,
-    player: { type: Schema.ObjectId, ref: 'identity' },
+    player: { type: Schema.ObjectId, ref: 'users' },
     date: Date
 })
 

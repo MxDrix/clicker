@@ -1,7 +1,7 @@
 /*
 Import
 */
-    const IdentityModel = require('../../models/identity.model')
+    const UserModel = require('../../models/user.model')
     const bcrypt = require('bcryptjs');
     const { sendEmail } = require('../../services/mailer.service');
 //
@@ -10,15 +10,15 @@ Import
 Methods
 */
     /**
-     * Register new identity and user
+     * Register new User and user
      * @param body => email: String (unique), password: String
     */
     const register = body => {
         return new Promise( (resolve, reject) => {
             // Search user by email
-            IdentityModel.findOne( { email: body.email }, (error, user) => {
+            UserModel.findOne( { email: body.email }, (error, user) => {
                 if(error) return reject(error) // Mongo Error
-                else if(user) return reject('Identity already exist')
+                else if(user) return reject('User already exist')
                 else{
                     // Encrypt user password
                     bcrypt.hash( body.password, 10 )
@@ -33,7 +33,7 @@ Methods
                         body.isValidated = true;
 
                         // Register new user
-                        IdentityModel.create(body)
+                        UserModel.create(body)
                         .then( mongoResponse => {
                             // sendEmail(mongoResponse, clearPassword)
                             // .then( mailerResponse => {
@@ -54,21 +54,21 @@ Methods
     };
 
     /**
-     * Confirm user identity before login
+     * Confirm user User before login
      * @param body: Object => _id: String, password: String
     */
-    const confirmIdentity = body => {
+    const confirmUser = body => {
         return new Promise( (resolve, reject) => {
             // Search user by email
-            IdentityModel.findById( body._id, (error, user) => {
+            UserModel.findById( body._id, (error, user) => {
                 if(error) return reject(error)
-                else if(!user) return reject('Unknow identity')
+                else if(!user) return reject('Unknow User')
                 else{
                     // Check password
                     const validPassword = bcrypt.compareSync(body.password, user.password);
                     if( !validPassword ) return reject('Password not valid')
                     else {
-                        // Change identity state
+                        // Change User state
                         user.isValidated = true;
 
                         // Save identuty state
@@ -88,9 +88,9 @@ Methods
     const login = (body, res) => {
         return new Promise( (resolve, reject) => {
             // Search user by email
-            IdentityModel.findOne( { email: body.email }).select('+password').exec(function(error, user) {
+            UserModel.findOne( { email: body.email }).select('+password').exec(function(error, user) {
                 if(error) reject(error)
-                else if(!user) reject('Unknow identity')
+                else if(!user) reject('Unknow User')
                 else{
                     if( !user.isValidated ){
                         return reject('Account is not validated')
@@ -138,10 +138,10 @@ Methods
     const setPassword = (body, authUser, res) => {
         return new Promise( (resolve, reject) => {
             // Search user by email
-            IdentityModel.findById( authUser._id, (error, user) => {
+            UserModel.findById( authUser._id, (error, user) => {
                 
                 if(error) reject(error)
-                else if(!user) reject('Unknow identity')
+                else if(!user) reject('Unknow User')
                 else{
                     
                     // Check password
@@ -175,7 +175,7 @@ Methods
 
     const readOneItem = (userId) => {
         return new Promise( (resolve, reject) => {
-            IdentityModel.findById(userId, (error, user) => {
+            UserModel.findById(userId, (error, user) => {
                 if (error) return reject(error)
                 else if (!user) return reject('User not found');
                 else {
@@ -190,7 +190,7 @@ Export
 */
     module.exports = {
         register,
-        confirmIdentity,
+        confirmUser,
         login,
         logout,
         setPassword,

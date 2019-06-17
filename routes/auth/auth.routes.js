@@ -10,7 +10,7 @@ Imports
     const Vocabulary = require('../../services/vocabulary.service');
     const { sendBodyError, sendFieldsError, sendApiSuccessResponse, sendApiErrorResponse } = require('../../services/response.service');
     const { checkFields } = require('../../services/request.service');
-    const { register, confirmIdentity, login, setPassword, logout, readOneItem } = require('./auth.controller');
+    const { register, confirmUser, login, setPassword, logout, readOneItem } = require('./auth.controller');
 //
 
 /*
@@ -27,9 +27,9 @@ Routes definition
         routes(){
 
             /**
-             * POST Route to create new identity
+             * POST Route to create new User
              * @param body: Object => email: String (unique), password: String
-             * @callback => create identity and associated user
+             * @callback => create User and associated user
             */
             authRouter.post( '/register', (req, res) => {
                 // Check request body
@@ -48,11 +48,11 @@ Routes definition
             });
 
             /**
-             * POST Route to validate identity
+             * POST Route to validate User
              * @param body: Object => _id: String, password: String
-             * @callback => change identity.isValidated to 'true'
+             * @callback => change User.isValidated to 'true'
             */
-            authRouter.post( '/identity-validation', (req, res) => {
+            authRouter.post( '/User-validation', (req, res) => {
                 // Check request body
                 if (typeof req.body === 'undefined' || req.body === null) { sendBodyError(res, Vocabulary.errors.noBody) };
                 // Check fields in the body
@@ -62,7 +62,7 @@ Routes definition
                 if (!ok) { sendFieldsError(res, Vocabulary.errors.badFields, miss, extra) }
                 else{
                     //=> Request is valid: use controller
-                    confirmIdentity(req.body)
+                    confirmUser(req.body)
                     .then( apiResponse => sendApiSuccessResponse(res, Vocabulary.request.success, apiResponse) )
                     .catch( apiResponse => sendApiErrorResponse(res, Vocabulary.request.error, apiResponse) );
                 };
@@ -97,19 +97,19 @@ Routes definition
 
 
             /**
-             * GET Route to check identity token (for Angular AuthGuard)
-             * @param passport: AuthStrategy => use the access token to check user identity
+             * GET Route to check User token (for Angular AuthGuard)
+             * @param passport: AuthStrategy => use the access token to check user User
              * @callback => send user _id and date informations
             */
             authRouter.get( '/', this.passport.authenticate('jwt', { session: false }), (req, res) => {
-                // Check if identity is validated for security strategy
+                // Check if User is validated for security strategy
                 if(req.user.isValidated) return sendApiSuccessResponse(res, Vocabulary.request.success, { _id: req.user._id, lastConnection: req.user.lastConnection })
-                else return sendApiErrorResponse(res, Vocabulary.request.error, 'Identity not validated');
+                else return sendApiErrorResponse(res, Vocabulary.request.error, 'User not validated');
             });
 
             /**
-             * GET Route to check identity token (for Angular AuthGuard)
-             * @param passport: AuthStrategy => use the access token to check user identity
+             * GET Route to check User token (for Angular AuthGuard)
+             * @param passport: AuthStrategy => use the access token to check user User
              * @param body: Object => password: String, newPassword: String
              * @callback => send user _id and date informations
             */

@@ -13,7 +13,7 @@ Import
 Mongoose schema deefinition
 Declare each property and type needed for the schema
 */
-    const identitySchema = new Schema({
+    const userSchema = new Schema({
         email: String,
         firstname: String,
         lastname: String,
@@ -28,7 +28,7 @@ Declare each property and type needed for the schema
 Method generateJwt()
 Generate a user access token
 */
-    identitySchema.methods.generateJwt = idUser => {
+    userSchema.methods.generateJwt = idUser => {
         // The access token expired in 60 days
         const expiry = new Date();
         expiry.setDate(expiry.getDate() + 59);
@@ -55,6 +55,6 @@ Generate a user access token
 Export
 Create a const that use the Mongoose schema to declare an objet model
 */
-    const IdentityModel = mongoose.model('identity', identitySchema);
-    module.exports = IdentityModel;
+    const UserModel = mongoose.model('users', userSchema);
+    module.exports = UserModel;
 //
