@@ -7,7 +7,7 @@ Imports
 
     // Inner
     import { Routing } from './router';
-    import { LeaderboardPageComponent } from './leaderboard-page.component';
+    import { ScorePageComponent } from './score-page.component';
 //
 
 
@@ -15,7 +15,7 @@ Imports
 Definition 
 */
     @NgModule({
-        declarations: [ LeaderboardPageComponent ],
+        declarations: [ ScorePageComponent ],
         imports: [ 
             CommonModule, 
             Routing

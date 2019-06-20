@@ -13,8 +13,8 @@ Imports & definition
 
   // Definition
   @Component({
-    selector: 'app-leaderboard-page',
-    templateUrl: './leaderboard-page.component.html',
+    selector: 'app-score-page',
+    templateUrl: './score-page.component.html',
     providers: [ AuthService, ClickerService, UtilsService ]
   })
 //
@@ -23,7 +23,7 @@ Imports & definition
 /* 
 Export
 */
-  export class LeaderboardPageComponent implements OnInit {
+  export class ScorePageComponent implements OnInit {
 
     /* 
     Config.

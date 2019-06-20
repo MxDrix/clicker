@@ -37,6 +37,20 @@ Server configuration
             //=> Use BodyParser to get user body data
             server.use(bodyParser.json({limit: '10mb'}));
             server.use(bodyParser.urlencoded({ extended: true }));
+            server.use((req, res, next) => {
+                res.setHeader("Access-Control-Allow-Origin", "*");
+                res.setHeader(
+                  "Access-Control-Allow-Headers",
+                  "Origin, X-Requested-With, Content-Type, Accept"
+                );
+                res.setHeader("Access-Control-Allow-Credentials", true);
+                // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+                res.setHeader(
+                  "Access-Control-Allow-Methods",
+                  "GET, POST, PATCH, DELETE, OPTIONS"
+                );
+                next();
+              });
 
             //=> Use CookieParser to setup serverside cookies
             server.use(cookieParser(process.env.COOKIE_SECRET));

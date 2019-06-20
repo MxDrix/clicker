@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth-service.service';
 import { ApiResponseModel } from '../../models/api.reponse.model';
 import { DataSharingService } from '../../services/data-sharing/data-sharing-service.service';
+import { UtilsService } from '../../services/utils/utils-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit {
     private AuthService: AuthService,
     private Router: Router,
     private DataSharingService: DataSharingService,
+    private UtilsService: UtilsService
     ) {
 
       // Service initialize to update automatically his variables. Here, we use it in the application to 

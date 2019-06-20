@@ -63,7 +63,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"default~routes-home-page-module~routes-identity-validation-module~routes-reset-password-page-module~~c232dce7":"default~routes-home-page-module~routes-identity-validation-module~routes-reset-password-page-module~~c232dce7","common":"common","routes-home-page-module":"routes-home-page-module","routes-identity-validation-module":"routes-identity-validation-module","routes-reset-password-page-module":"routes-reset-password-page-module","routes-user-page-module":"routes-user-page-module","routes-leaderboard-page-module":"routes-leaderboard-page-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"default~routes-home-page-module~routes-identity-validation-module~routes-reset-password-page-module~~c232dce7":"default~routes-home-page-module~routes-identity-validation-module~routes-reset-password-page-module~~c232dce7","common":"common","routes-home-page-module":"routes-home-page-module","routes-identity-validation-module":"routes-identity-validation-module","routes-reset-password-page-module":"routes-reset-password-page-module","routes-user-page-module":"routes-user-page-module","routes-score-page-module":"routes-score-page-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

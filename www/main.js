@@ -20,15 +20,15 @@ var map = {
 		"common",
 		"routes-identity-validation-module"
 	],
-	"./routes/leaderboard-page/module": [
-		"./src/app/routes/leaderboard-page/module.ts",
-		"routes-leaderboard-page-module"
-	],
 	"./routes/reset-password-page/module": [
 		"./src/app/routes/reset-password-page/module.ts",
 		"default~routes-home-page-module~routes-identity-validation-module~routes-reset-password-page-module~~c232dce7",
 		"common",
 		"routes-reset-password-page-module"
+	],
+	"./routes/score-page/module": [
+		"./src/app/routes/score-page/module.ts",
+		"routes-score-page-module"
 	],
 	"./routes/user-page/module": [
 		"./src/app/routes/user-page/module.ts",
@@ -228,8 +228,8 @@ var MainRouter = [
         canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]] // Accessible for connected user
     },
     {
-        path: 'leaderboard',
-        loadChildren: './routes/leaderboard-page/module#Module',
+        path: 'score',
+        loadChildren: './routes/score-page/module#Module',
         canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]]
     }
 ];
@@ -312,7 +312,7 @@ var AuthGuard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\r\n  UNDER MIT LICENCE @2019 <a style=\"color: #CD2235;\" href='https://github.com/MxDrix' target=\"_blank\">Richard CHANDON</a>\r\n</footer>"
+module.exports = "<footer>\r\n  Richard CHANDON\r\n</footer>"
 
 /***/ }),
 
@@ -409,7 +409,7 @@ var FooterModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"maxWidth\">\r\n  <header>\r\n    <nav *ngIf=\"isUserLoggedIn; else noConnected\">\r\n      <h1>HELLO {{ userInformation!.data.firstname }}</h1>\r\n      <ul *ngIf=\"UtilsService.getCurrentRoute() == '/leaderboard'\">\r\n        <li><a [routerLink]=\"'/me'\">Play</a></li>\r\n        <li><a (click)=\"logoutUser()\">Logout</a></li>\r\n      </ul>\r\n      <ul *ngIf=\"UtilsService.getCurrentRoute() == '/me'\">\r\n        <li><a [routerLink]=\"'/leaderboard'\">Leaderboard</a></li>\r\n        <li><a (click)=\"logoutUser()\">Logout</a></li>\r\n      </ul>\r\n    </nav>\r\n  </header>\r\n</section>\r\n\r\n<div class=\"divCenter textCenter\" id=\"flashMessage\">\r\n  <span id=\"flashMessageContent\"></span>\r\n</div>\r\n\r\n<ng-template #noConnected>\r\n  <h1>WELCOME ON <span>TAPBOARD</span></h1>\r\n  <p>LOGIN OR REGISTER TO LAUNCH AN AMAZING TAPPING GAME</p>\r\n</ng-template>"
+module.exports = "<section class=\"maxWidth\">\r\n  <header>\r\n    <nav *ngIf=\"isUserLoggedIn; else noConnected\">\r\n      <h1>HELLO {{ userInformation!.data.firstname }}</h1>\r\n      <ul *ngIf=\"UtilsService.getCurrentRoute() == '/score'\">\r\n        <li><a [routerLink]=\"'/me'\">Play</a></li>\r\n        <li><a (click)=\"logoutUser()\">Logout</a></li>\r\n      </ul>\r\n      <ul *ngIf=\"UtilsService.getCurrentRoute() == '/me'\">\r\n        <li><a [routerLink]=\"'/score'\">score</a></li>\r\n        <li><a (click)=\"logoutUser()\">Logout</a></li>\r\n      </ul>\r\n    </nav>\r\n  </header>\r\n</section>\r\n\r\n<div class=\"divCenter textCenter\" id=\"flashMessage\">\r\n  <span id=\"flashMessageContent\"></span>\r\n</div>\r\n\r\n<ng-template #noConnected>\r\n  <h1>WELCOME ON <span>TAPBOARD</span></h1>\r\n  <p>LOGIN OR REGISTER TO LAUNCH AN AMAZING TAPPING GAME</p>\r\n</ng-template>"
 
 /***/ }),
 
@@ -427,18 +427,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_auth_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/auth/auth-service.service */ "./src/app/services/auth/auth-service.service.ts");
 /* harmony import */ var _services_data_sharing_data_sharing_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/data-sharing/data-sharing-service.service */ "./src/app/services/data-sharing/data-sharing-service.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_utils_utils_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/utils/utils-service.service */ "./src/app/services/utils/utils-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(AuthService, Router, DataSharingService) {
+    function HeaderComponent(AuthService, Router, DataSharingService, UtilsService) {
         var _this = this;
         this.AuthService = AuthService;
         this.Router = Router;
         this.DataSharingService = DataSharingService;
+        this.UtilsService = UtilsService;
         this.userInformation = {
             data: {
                 firstname: ''
@@ -482,8 +485,9 @@ var HeaderComponent = /** @class */ (function () {
             providers: [_services_auth_auth_service_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_auth_auth_service_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _services_data_sharing_data_sharing_service_service__WEBPACK_IMPORTED_MODULE_3__["DataSharingService"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _services_data_sharing_data_sharing_service_service__WEBPACK_IMPORTED_MODULE_3__["DataSharingService"],
+            _services_utils_utils_service_service__WEBPACK_IMPORTED_MODULE_4__["UtilsService"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());

@@ -3,7 +3,7 @@ Imports
 */
     import { ModuleWithProviders } from '@angular/core';
     import { Routes, RouterModule } from '@angular/router';
-    import { LeaderboardPageComponent } from './leaderboard-page.component';
+    import { ScorePageComponent } from './score-page.component';
 //
 
 
@@ -13,7 +13,7 @@ Definition
     const route: Routes = [
         {
             path: '',
-            component: LeaderboardPageComponent
+            component: ScorePageComponent
         }
     ];
 //

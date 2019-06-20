@@ -110,9 +110,7 @@ Definition
     private getAccessToken() {
       const access_token = this.CookieService.get('ClickerToken');
       const jwtHelper = new JwtHelperService();
-
       const decodedToken = jwtHelper.decodeToken(access_token);
-
       return decodedToken._id;
     }
   };

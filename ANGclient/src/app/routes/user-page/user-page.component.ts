@@ -39,6 +39,7 @@ Export
     public nbClick: number = 0;
     public timer: number = 10;
     public progressBar: number = 0;
+    public time: number = 0;
     public interval;
 
     /*
@@ -66,6 +67,7 @@ Export
           if(this.timer > 0) {
             this.timer--;
             this.progressBar = this.progressBar + 10;
+            this.time = this.time + 1;
           } else {
             this.timer = 10;
           }

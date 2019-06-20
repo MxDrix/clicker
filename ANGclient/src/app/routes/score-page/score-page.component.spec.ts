@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeaderboardPageComponent } from './leaderboard-page.component';
+import { ScorePageComponent } from './Score-page.component';
 
-describe('LeaderboardPageComponent', () => {
-  let component: LeaderboardPageComponent;
-  let fixture: ComponentFixture<LeaderboardPageComponent>;
+describe('ScorePageComponent', () => {
+  let component: ScorePageComponent;
+  let fixture: ComponentFixture<ScorePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LeaderboardPageComponent ]
+      declarations: [ ScorePageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LeaderboardPageComponent);
+    fixture = TestBed.createComponent(ScorePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

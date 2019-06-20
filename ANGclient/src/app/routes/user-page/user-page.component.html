@@ -1,8 +1,8 @@
-<p class="italicFt12">Vous avez très exactement 10 secondes pour cliquer autant de fois que possible sur le gros bouton ci-dessous, la partie se lancera au premier clic ! Bonne chance !</p>
+<p class="italicFt12">10s To Click !</p>
 
 <img #newGameEl 
-  (click)="UtilsService.switchImgSrc($event, 'tapOff.png', 'tapOn.png'); startNewGame(newGameEl)" 
-  src="../../../assets/images/tapOff.png" 
+  (click)="startNewGame(newGameEl)" 
+  src="../../../assets/images/push.png" 
   [attr.data-status]="status"
   class="maxWidth100"
 />
@@ -11,4 +11,5 @@
   [nbClick] = nbClick
   [timer] = timer
   [progressBar] = progressBar
+  [time] = time
 ></app-form-newgame>

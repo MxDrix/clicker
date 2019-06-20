@@ -32,8 +32,8 @@ Export
             canActivate: [ AuthGuard ] // Accessible for connected user
         },
         {
-            path: 'leaderboard',
-            loadChildren: './routes/leaderboard-page/module#Module',
+            path: 'score',
+            loadChildren: './routes/score-page/module#Module',
             canActivate: [ AuthGuard ]
         }
     ];

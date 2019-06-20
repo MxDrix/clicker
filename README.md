@@ -47,11 +47,10 @@ PORT=3000
 # Mongo
 MONGO_URL='mongodb://127.0.0.1:27017/clicker'
 
-# JWT
-JWT_SECRET='fdpgdyzmsdfFSfg3gk665GDFs'
+WT_SECRET='ERTGgr4fe52gceffr2Hedcf'
 
 # COOKIES
-COOKIE_SECRET='fgklfs24kf56lsjf965vdsfF'
+COOKIE_SECRET='sdxdvcOUJv964edW3'
 COOKIE_NAME='ClickerToken'
 ```
 

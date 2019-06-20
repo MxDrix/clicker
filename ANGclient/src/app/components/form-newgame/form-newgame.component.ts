@@ -26,7 +26,7 @@ Imports & definition
     @Input() nbClick: number;
     @Input() timer: number;
     @Input() progressBar: number;
-
+    @Input() time: number;
     /* 
     Config.
     */
@@ -63,13 +63,13 @@ Imports & definition
       };
 
       ngOnChanges(){
-        // Check if time is over. If yes, saved data in database and redirect to the leaderboard page
+        // Check if time is over. If yes, saved data in database and redirect to the score page
         if (this.timer == 0) {
           this.timer = 10000;
           this.ClickerService.newClicker(this.form.value.nbClick)
           .then(apiResponse => {
-            this.Router.navigate(['/leaderboard']);
-            this.UtilsService.flashMessage('success', 'Votre score est de ' + this.form.value.nbClick + ' clics !');
+            this.Router.navigate(['/score']);
+            this.UtilsService.flashMessage('success', '' + this.form.value.nbClick + ' clics !');
           })
           .catch(apiResponse => {
 

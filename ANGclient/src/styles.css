@@ -106,6 +106,7 @@ Common
 
     .marginBottomForFixedFooter {
         margin-bottom: 40px;
+        text-align: center;
     }
 
     .maxWidth100 {
@@ -321,21 +322,21 @@ Home
 /**/
 
 /*
-Leaderboard
+Score
 */
 
-    #leaderboard li {
+    #score li {
         list-style-type: none;
         border-bottom: 1px solid #c8c8c8;
         padding: 5px 0;
     }
 
-    #leaderboard li div:first-child {
+    #score li div:first-child {
         font-weight: bold;
         width: 25%;
     }
 
-    #leaderboard li div:last-child {
+    #score li div:last-child {
         width: 75%;
     }
 
@@ -381,8 +382,7 @@ ProgressBar
         height: 22px;
         background-color: #659cef;
         border-radius: 3px;
-        
-        transition: width 500ms ease-in-out;
+        transition: width 1000ms linear;
     }
 
 /**/

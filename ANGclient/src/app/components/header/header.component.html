@@ -2,12 +2,12 @@
   <header>
     <nav *ngIf="isUserLoggedIn; else noConnected">
       <h1>HELLO {{ userInformation!.data.firstname }}</h1>
-      <ul *ngIf="UtilsService.getCurrentRoute() == '/leaderboard'">
+      <ul *ngIf="UtilsService.getCurrentRoute() == '/score'">
         <li><a [routerLink]="'/me'">Play</a></li>
         <li><a (click)="logoutUser()">Logout</a></li>
       </ul>
       <ul *ngIf="UtilsService.getCurrentRoute() == '/me'">
-        <li><a [routerLink]="'/leaderboard'">Leaderboard</a></li>
+        <li><a [routerLink]="'/score'">score</a></li>
         <li><a (click)="logoutUser()">Logout</a></li>
       </ul>
     </nav>

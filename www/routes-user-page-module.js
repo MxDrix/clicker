@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form autocomplete=\"off\" [formGroup]=\"form\">\r\n  <input name=\"nbClick\" formControlName=\"nbClick\" type=\"hidden\" [(ngModel)]=\"nbClick\" disabled />\r\n</form>\r\n\r\n<div class=\"wrapper\">\r\n  <div class=\"progress-bar\">\r\n    <span class=\"progress-bar-fill\" [ngStyle]=\"{'width': progressBar + '%'}\"></span>\r\n  </div>\r\n</div>"
+module.exports = "<form autocomplete=\"off\" [formGroup]=\"form\">\r\n  <input name=\"nbClick\" formControlName=\"nbClick\" type=\"hidden\" [(ngModel)]=\"nbClick\" disabled />\r\n</form>\r\n\r\n<div class=\"wrapper\">\r\n  <div class=\"progress-bar\">\r\n    <span class=\"progress-bar-fill\" [ngStyle]=\"{'width': progressBar + '%'}\"><div [innerHTML]=\"time +'s'\"></div></span>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -68,13 +68,13 @@ var FormNewGameComponent = /** @class */ (function () {
     ;
     FormNewGameComponent.prototype.ngOnChanges = function () {
         var _this = this;
-        // Check if time is over. If yes, saved data in database and redirect to the leaderboard page
+        // Check if time is over. If yes, saved data in database and redirect to the score page
         if (this.timer == 0) {
             this.timer = 10000;
             this.ClickerService.newClicker(this.form.value.nbClick)
                 .then(function (apiResponse) {
-                _this.Router.navigate(['/leaderboard']);
-                _this.UtilsService.flashMessage('success', 'Votre score est de ' + _this.form.value.nbClick + ' clics !');
+                _this.Router.navigate(['/score']);
+                _this.UtilsService.flashMessage('success', '' + _this.form.value.nbClick + ' clics !');
             })
                 .catch(function (apiResponse) {
             });
@@ -93,6 +93,10 @@ var FormNewGameComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], FormNewGameComponent.prototype, "progressBar", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], FormNewGameComponent.prototype, "time", void 0);
     FormNewGameComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-form-newgame',
@@ -273,7 +277,7 @@ var Routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forCh
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"italicFt12\">Vous avez très exactement 10 secondes pour cliquer autant de fois que possible sur le gros bouton ci-dessous, la partie se lancera au premier clic ! Bonne chance !</p>\r\n\r\n<img #newGameEl \r\n  (click)=\"UtilsService.switchImgSrc($event, 'tapOff.png', 'tapOn.png'); startNewGame(newGameEl)\" \r\n  src=\"../../../assets/images/tapOff.png\" \r\n  [attr.data-status]=\"status\"\r\n  class=\"maxWidth100\"\r\n/>\r\n\r\n<app-form-newgame\r\n  [nbClick] = nbClick\r\n  [timer] = timer\r\n  [progressBar] = progressBar\r\n></app-form-newgame>"
+module.exports = "<p class=\"italicFt12\">10s To Click !</p>\r\n\r\n<img #newGameEl \r\n  (click)=\"startNewGame(newGameEl)\" \r\n  src=\"../../../assets/images/push.png\" \r\n  [attr.data-status]=\"status\"\r\n  class=\"maxWidth100\"\r\n/>\r\n\r\n<app-form-newgame\r\n  [nbClick] = nbClick\r\n  [timer] = timer\r\n  [progressBar] = progressBar\r\n  [time] = time\r\n></app-form-newgame>"
 
 /***/ }),
 
@@ -315,6 +319,7 @@ var UserPageComponent = /** @class */ (function () {
         this.nbClick = 0;
         this.timer = 10;
         this.progressBar = 0;
+        this.time = 0;
         /*
         Methods
         */
@@ -336,6 +341,7 @@ var UserPageComponent = /** @class */ (function () {
                 if (_this.timer > 0) {
                     _this.timer--;
                     _this.progressBar = _this.progressBar + 10;
+                    _this.time = _this.time + 1;
                 }
                 else {
                     _this.timer = 10;
